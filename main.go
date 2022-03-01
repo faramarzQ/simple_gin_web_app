@@ -22,5 +22,5 @@ func startServer() {
 
 	router.LoadHTMLGlob("templates/*")
 
-	router.Run(h.ENV("APP_BACKEND_IP"))
+	router.Run(":" + h.ENV("APP_PORT"))
 }
