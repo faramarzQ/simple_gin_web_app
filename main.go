@@ -1,6 +1,7 @@
 package main
 
 import (
+	DB "gin/database"
 	h "gin/helpers"
 	"gin/routes"
 
@@ -12,7 +13,13 @@ func main() {
 }
 
 func init() {
+	bootstrapDatabase()
+
 	startServer()
+}
+
+func bootstrapDatabase() {
+	DB.Con()
 }
 
 func startServer() {
