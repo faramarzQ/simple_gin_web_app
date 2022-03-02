@@ -28,6 +28,16 @@ func DefineRoutes(router *gin.Engine) {
 			albums.POST("/", actions.StoreAlbum)
 			albums.GET("/:id", actions.GetAlbumByID)
 		}
+
+		/**
+		Users
+		*/
+		users := api.Group("users")
+		{
+			users.GET("/", actions.GetUsers)
+			users.POST("/", actions.StoreUser)
+			users.GET("/:id", actions.GetUserById)
+		}
 	}
 
 	/*
