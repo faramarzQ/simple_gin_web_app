@@ -11,7 +11,7 @@ import (
 func GetAlbums(c *gin.Context) {
 
 	// serialize struct into json
-	c.IndentedJSON(http.StatusOK, models.Albums)
+	c.JSON(http.StatusOK, models.Albums)
 }
 
 func StoreAlbum(c *gin.Context) {
@@ -25,7 +25,7 @@ func StoreAlbum(c *gin.Context) {
 	// Add the new album to the slice.
 	_ = append(models.Albums, newAlbum)
 
-	c.IndentedJSON(http.StatusCreated, newAlbum)
+	c.JSON(http.StatusCreated, newAlbum)
 }
 
 func GetAlbumByID(c *gin.Context) {
@@ -39,5 +39,5 @@ func GetAlbumByID(c *gin.Context) {
 			return
 		}
 	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+	c.JSON(http.StatusNotFound, gin.H{"message": "album not found"})
 }
